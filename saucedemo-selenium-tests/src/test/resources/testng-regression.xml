@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Regression: full functional coverage, split by feature, cross-browser. -->
+<suite name="SauceDemo Regression Suite" parallel="tests" thread-count="2">
+    <test name="Regression - Chrome" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.janhavi.saucedemo.tests.LoginTest"/>
+            <class name="com.janhavi.saucedemo.tests.ProductTest"/>
+            <class name="com.janhavi.saucedemo.tests.CartTest"/>
+            <class name="com.janhavi.saucedemo.tests.CheckoutTest"/>
+        </classes>
+    </test>
+    <test name="Regression - Firefox (critical flows)" parallel="methods" thread-count="2">
+        <parameter name="browser" value="firefox"/>
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.janhavi.saucedemo.tests.LoginTest"/>
+            <class name="com.janhavi.saucedemo.tests.CartTest"/>
+            <class name="com.janhavi.saucedemo.tests.CheckoutTest"/>
+        </classes>
+    </test>
+</suite>

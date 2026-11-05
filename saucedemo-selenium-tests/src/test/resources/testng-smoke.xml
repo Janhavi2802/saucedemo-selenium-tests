@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Smoke: critical login, cart and checkout paths. Runs on every push. -->
+<suite name="SauceDemo Smoke Suite" parallel="methods" thread-count="3">
+    <parameter name="browser" value="chrome"/>
+    <test name="Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.janhavi.saucedemo.tests"/>
+        </packages>
+    </test>
+</suite>

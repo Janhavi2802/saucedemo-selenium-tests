@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Full run: smoke + regression, test methods in parallel (one browser per thread) -->
+<suite name="SauceDemo Full Suite" parallel="methods" thread-count="3" data-provider-thread-count="2">
+    <parameter name="browser" value="chrome"/>
+    <test name="All tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.janhavi.saucedemo.tests"/>
+        </packages>
+    </test>
+</suite>
